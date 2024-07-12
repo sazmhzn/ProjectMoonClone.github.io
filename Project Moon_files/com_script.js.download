@@ -1,0 +1,134 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+	$(document).ready(function() { 
+	
+          //input을 datepicker로 선언
+          $(".Txt_date").datepicker({
+              dateFormat: 'yy-mm-dd' //Input Display Format 변경
+              ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+              ,showMonthAfterYear:true //년도 먼저 나오고, 뒤에 월 표시
+              ,changeYear: true //콤보박스에서 년 선택 가능
+              ,changeMonth: true //콤보박스에서 월 선택 가능                
+              ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+              ,buttonImage: "/pub/img/icons/calendar_add.gif" //버튼 이미지 경로
+              ,buttonImageOnly: true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
+              ,buttonText: "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
+              ,yearSuffix: "년" //달력의 년도 부분 뒤에 붙는 텍스트
+              ,monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'] //달력의 월 부분 텍스트
+              ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
+              ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
+              ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
+				,nextText: '다음 달' // next 아이콘의 툴팁.
+				,prevText: '이전 달' // prev 아이콘의 툴팁.
+				,showButtonPanel:true // 캘린더 하단에 버튼 패널을 표시한다(오늘날짜로이동버튼, 닫기버튼).
+		    ,currentText: '오늘' // 오늘날짜로이동되는 버튼의 텍스트 변경 
+		    ,showAnim: "slideDown" //애니메이션을 적용한다.
+		    ,closeText: '닫기'  // 닫기버튼의 텍스트 변경
+          });                    
+          
+          //초기값을 오늘 날짜로 설정
+          $('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)            
+		$("img.ui-datepicker-trigger").attr("style", "margin-left:2px; vertical-align:middle; padding-bottom:3px; cursor: Pointer;");  
+	    $.fn.cal_clean = function(obj) {
+	        $("#"+obj).val("");
+	    };
+	    $.fn.cal_set = function(obj1,obj2,sdate,edate) {
+	    	$("#"+obj1).val(sdate);
+	    	$("#"+obj2).val(edate);
+		};
+		fnc_menu = function(str_menu,str_path) {
+			$(location).attr("href", "/admincenter/comm/comm_return_url.php?str_menu="+str_menu+"&str_path="+escape(str_path));
+		};
+		$(".class_img").change(function(){
+		    if($(this).val() != ""){
+		    	if($(this).attr("val1") == "1"){	
+	            	var ext = $(this).val().split(".").pop().toLowerCase();
+		            if($.inArray(ext, ["gif","jpg","jpeg",,"png"]) == -1){
+		                alert("gif, jpg, jpeg, png 파일만 업로드 해주세요.");
+		                $(this).val("");
+		                return;
+		            }
+		       	} else if($(this).attr("val1") == "2"){	
+	            	var ext = $(this).val().split(".").pop().toLowerCase();
+		            if($.inArray(ext, ["asp","php","jsp",,"cig"]) != -1){
+		                alert("asp, php, jsp, cgi 파일은 업로드 할수 없습니다.");
+		                $(this).val("");
+		                return;
+		            }		       	
+		       	}
+		       	if($(this).attr("val2") != ""){	
+		            var fileSize = this.files[0].size;
+		            var maxSize = 1024 * 1024 * parseInt($(this).attr("val2"));
+		            if(fileSize > maxSize){
+		                alert("파일용량 "+$(this).attr("val2")+"MB을 초과했습니다.");
+		                $(this).val("");
+		            }
+		    	}
+		    }
+		});
+		$.comma = function(str){
+    		str = String(str);
+    		return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+		}
+		$(document).on("click", ".intprice", function(){
+			$('.intprice').number( true, 0 );
+		});
+		//$('.intprice').number( true,0);
+		$(document).on("change", ".intprice", function(){
+			console.log('Change event.');
+			var val = $(this).val();
+		});
+		$(document).on("click", ".decprice", function(){
+			$('.decprice').number( true, 2 );
+		});
+		$(document).on("change", ".decprice", function(){
+			console.log('Change event.');
+			var val = $(this).val();
+		});
+		//$('.intnum').number( true,0,',','' );
+
+		$(document).on("keypress", ".sintnum", function(event){
+			if (event.which && (event.which <= 47 || event.which >= 58) && event.which != 8) {event.preventDefault();}
+		});
+		$(document).on("keyup", ".sintstrnum", function(event){
+			if (event.which && (event.which  > 47 && event.which  < 58 || event.which == 8)) {
+  			} else {
+    			event.preventDefault();
+  			}
+		});
+
+	});
+	
+	
+
+}
+/*
+     FILE ARCHIVED ON 12:08:52 Oct 29, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 10:49:38 Jul 11, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.465
+  exclusion.robots: 0.024
+  exclusion.robots.policy: 0.015
+  esindex: 0.009
+  cdx.remote: 9.914
+  LoadShardBlock: 783.233 (3)
+  PetaboxLoader3.resolve: 836.218 (4)
+  PetaboxLoader3.datanode: 168.776 (4)
+  load_resource: 312.248
+*/

@@ -1,0 +1,146 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+$(window).on("load",function(){
+
+
+});
+
+
+$(document).ready(function(){ //프로젝트문
+
+	var scrollTop = $(window).scrollTop();
+	if(scrollTop > 100){
+		if(!$(".header").hasClass("active")){
+			$(".header").addClass("active");
+	}
+	}else{
+		if($(".header").hasClass("active")){
+			$(".header").removeClass("active");
+		}
+	}
+
+
+	$(window).scroll(function(){
+		
+		var scrollTop = $(window).scrollTop();
+
+		if(scrollTop > 100){
+			if(!$(".header").hasClass("active")){
+				$(".header").addClass("active");
+			}
+		}else{
+			if($(".header").hasClass("active")){
+				$(".header").removeClass("active");
+			}
+		}
+
+	});
+
+	
+	var $gnb = $(".gnb .gnb-box li");
+	var $subGnb = $(".gnb dl.sub-gnb");
+	$gnb.on("mouseenter", function(){
+		if(!$(".header").hasClass("active")){
+			$(".header").addClass("active");
+		}
+		$subGnb.stop().hide();
+		$gnb.removeClass("active");
+		$(this).addClass("active");
+		if($(this).hasClass("active")){
+			$(this).find(".sub-gnb").slideDown();
+		}
+	});
+
+	$(".gnb .gnb-box").on("mouseleave", function(){
+		$subGnb.stop().hide();
+		$gnb.removeClass("active");		
+		var scrollTop = $(window).scrollTop();
+		if(scrollTop < 100){
+			if($(".header").hasClass("active")){
+				$(".header").removeClass("active");
+			}
+		}
+	});
+
+
+	var $moGnbBtn = $(".mo-gnb-btn");
+	$moGnbBtn.on("click", function(){
+		$(this).toggleClass("active");
+
+		if($(this).hasClass("active")){
+			$(".mo-gnb-bg").addClass("active");
+			$(".mo-gnb").addClass("active");
+			$(".mo-gnb ul").animate({opacity : 1}, 1000);
+		}else{
+			$(".mo-gnb").removeClass("active");
+			$(".mo-gnb-bg").removeClass("active");	
+			$(".mo-gnb ul").animate({opacity : 0}, 1000);
+		}
+	});
+
+	$(".mo-gnb .main-gnb").on("click", function(){
+		$(".mo-gnb .main-gnb").removeClass("on");
+		$(this).addClass("on");
+		$("dl.mo-sub-gnb").stop().slideUp();
+		$(this).next("dl.mo-sub-gnb").stop().slideDown();
+	});
+
+	
+	$(window).resize(function(){
+		
+		if(!$moGnbBtn.is(":visible")){
+			$moGnbBtn.removeClass("active");
+			$(".mo-gnb").removeClass("active");
+			$(".mo-gnb-bg").removeClass("active");	
+			$(".mo-gnb ul").animate({opacity : 0}, 1000);
+		}
+
+	});
+
+	var $len = $(".sns-box li .len");
+	$len.on("click", function(){
+		$(this).toggleClass("active");
+
+		if($(this).hasClass("active")){
+			$(this).parent().find("dl").slideDown();
+		}else{
+			$(this).parent().find("dl").slideUp();
+		}
+	});
+
+
+});
+
+
+
+}
+/*
+     FILE ARCHIVED ON 18:01:14 Jan 09, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 10:49:36 Jul 11, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.571
+  exclusion.robots: 0.024
+  exclusion.robots.policy: 0.015
+  esindex: 0.012
+  cdx.remote: 18.804
+  LoadShardBlock: 183.62 (3)
+  PetaboxLoader3.datanode: 71.273 (4)
+  PetaboxLoader3.resolve: 196.966 (3)
+  load_resource: 108.086
+*/
