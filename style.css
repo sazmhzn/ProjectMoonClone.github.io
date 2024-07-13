@@ -6,7 +6,9 @@
 
 body {
   background-color: black;
-  font-family: "Noto Sans KR", "Helvetica";
+  font-family: "Noto Sans KR", "Helvetica", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
   color: white;
 }
 
@@ -19,9 +21,10 @@ header {
   width: 100%;
   display: flex;
   justify-content: center;
-  font-family: "Norwester";
+  font-family: "Norwester", sans-serif;
   position: fixed;
-  z-index: 9999;
+  top: 0;
+  z-index: 9;
   transition: 0.5s;
 }
 header .header-container {
@@ -32,10 +35,11 @@ header .header-container {
   align-items: center;
   justify-content: space-around;
   position: relative;
+
+  margin: 0 2%;
 }
 header .header-container .logo {
   width: 72px;
-  margin-left: 20px;
 }
 header .header-container .logo img {
   height: 65px;
@@ -55,7 +59,7 @@ header .header-container .links .link {
   align-items: center;
   justify-content: flex-end;
 }
-header .header-container .links .link .left-link {
+.links .link .left-link {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -63,7 +67,7 @@ header .header-container .links .link .left-link {
   list-style: none;
   height: 100%;
 }
-header .header-container .links .link .left-link li {
+.links .link .left-link li {
   padding-inline: 25px;
   font-size: 25px;
   height: 100%;
@@ -72,12 +76,24 @@ header .header-container .links .link .left-link li {
   align-items: center;
   justify-content: center;
 }
+
+.left-link a {
+  font-size: 16px;
+}
+
 header .header-container .links .link .left-link li .dropdown {
   position: relative;
   opacity: 1;
   display: inline-block;
 }
-header .header-container .links .link .left-link li .dropdown .dropdown-content {
+header
+  .header-container
+  .links
+  .link
+  .left-link
+  li
+  .dropdown
+  .dropdown-content {
   position: absolute;
   padding: 10px 0 0 0;
   display: none;
@@ -86,14 +102,30 @@ header .header-container .links .link .left-link li .dropdown .dropdown-content 
   transform: translateX(-50%);
   transition: 0.5s;
 }
-header .header-container .links .link .left-link li .dropdown .dropdown-content a {
+header
+  .header-container
+  .links
+  .link
+  .left-link
+  li
+  .dropdown
+  .dropdown-content
+  a {
   width: 100%;
   display: block;
   padding: 10px 40px;
   margin-top: 2px;
   background-color: rgba(0, 0, 0, 0.747);
 }
-header .header-container .links .link .left-link li .dropdown .dropdown-content a:hover {
+header
+  .header-container
+  .links
+  .link
+  .left-link
+  li
+  .dropdown
+  .dropdown-content
+  a:hover {
   color: #ffe5b8;
 }
 header .header-container .links .link .left-link li .dropdown .dropdown-game {
@@ -102,12 +134,26 @@ header .header-container .links .link .left-link li .dropdown .dropdown-game {
   text-align: center;
   left: 56%;
 }
-header .header-container .links .link .left-link li .dropdown .dropdown-content:nth-child(1) {
+header
+  .header-container
+  .links
+  .link
+  .left-link
+  li
+  .dropdown
+  .dropdown-content:nth-child(1) {
   border-bottom-width: 1px;
   border-bottom-color: #ffe5b8;
   border-bottom-style: solid;
 }
-header .header-container .links .link .left-link li .dropdown:hover .dropdown-content {
+header
+  .header-container
+  .links
+  .link
+  .left-link
+  li
+  .dropdown:hover
+  .dropdown-content {
   display: block;
 }
 header .header-container .links .link .left-link li a {
@@ -189,49 +235,52 @@ main {
 }
 main .section {
   min-height: 100vh;
+  width: 100%;
   position: relative;
-  margin-top: -70px;
+  margin-top: -130px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
 }
-main .section .nav {
-  position: absolute;
+
+.nav {
+  width: 20%;
+  position: sticky;
+  display: inline-block;
+  z-index: 100;
   top: 50%;
-  left: 10px;
-  transform: translateY(50%);
+  left: 2%;
+  transform: translateY(-50%);
 }
-main .section .nav ul {
+.nav ul {
   padding: 0 20px;
   line-height: 1;
-}
-main .section .nav ul li {
-  padding: 5px;
   list-style-type: none;
-  font-family: "Raleway";
-  font-size: 16px;
 }
-main .section .nav ul li a {
+.nav ul li {
+  padding: 5px;
+  font-family: "Railway", sans-serif;
+}
+.nav ul li a {
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 600;
+  font-size: 14px;
   color: rgb(124, 124, 124);
 }
-main .section .nav ul li #on {
+.nav ul li #on {
   color: #ffe5b8;
 }
-main .section .nav ul li::before {
+.nav ul li::before {
   content: "";
-  color: #ffe5b8;
   font-weight: bold;
   display: inline-block;
-  width: 5px;
-  height: 5px;
-  background-color: #ffe5b8;
-  border-radius: 50%;
-  margin: 2px;
-  margin-left: -1em;
-  margin-right: 10px;
+  width: 12px;
+  height: 12px;
+  background-image: url("./image/icon_navi.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: -35px;
 }
 main .section .section-inner {
   margin: 0 5%;
@@ -240,7 +289,8 @@ main .section .section-inner {
 }
 main .section .section-inner .hero-container {
   height: 100%;
-  width: 70%;
+  width: 92%;
+  margin: 0 auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -252,14 +302,19 @@ main .section .section-inner .hero-container .hero-logo {
 main .section .section-inner .hero-container .hero-text {
   margin-bottom: 50px;
 }
+.hero-container .hero-text h1 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
 main .section .section-inner .hero-container .hero-text h2 {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 10px;
 }
 main .section .section-inner .hero-container .hero-text p {
-  font-size: 14px;
-  opacity: 0.7;
+  font-size: 16px;
+  opacity: 0.9;
   font-weight: 350;
   line-height: 1.7;
 }
@@ -371,7 +426,14 @@ main .section .section-inner .container form .content .title h1 {
   letter-spacing: -1px;
   color: #ffe5b8;
 }
-main .section .section-inner .container form .content .button-collection .hero-button {
+main
+  .section
+  .section-inner
+  .container
+  form
+  .content
+  .button-collection
+  .hero-button {
   border-right: 1px #1bb8a5 solid;
   border-bottom: 1px #1bb8a5 solid;
   display: flex;
@@ -379,7 +441,15 @@ main .section .section-inner .container form .content .button-collection .hero-b
   justify-content: center;
   position: relative;
 }
-main .section .section-inner .container form .content .button-collection .hero-button button {
+main
+  .section
+  .section-inner
+  .container
+  form
+  .content
+  .button-collection
+  .hero-button
+  button {
   background: transparent;
   color: #1bb8a5;
   border: none;
@@ -389,7 +459,15 @@ main .section .section-inner .container form .content .button-collection .hero-b
   padding: 15px 20px;
   width: 100%;
 }
-main .section .section-inner .container form .content .button-collection .hero-button button::after {
+main
+  .section
+  .section-inner
+  .container
+  form
+  .content
+  .button-collection
+  .hero-button
+  button::after {
   content: "";
   position: absolute;
   top: -12%;
@@ -399,7 +477,15 @@ main .section .section-inner .container form .content .button-collection .hero-b
   background-color: #1bb8a5;
   transform: rotate(50deg);
 }
-main .section .section-inner .container form .content .button-collection .hero-button button::before {
+main
+  .section
+  .section-inner
+  .container
+  form
+  .content
+  .button-collection
+  .hero-button
+  button::before {
   content: "";
   position: absolute;
   top: 0%;
@@ -408,7 +494,14 @@ main .section .section-inner .container form .content .button-collection .hero-b
   height: 1px;
   background-color: #1bb8a5;
 }
-main .section .section-inner .container form .content .button-collection .hero-button::before {
+main
+  .section
+  .section-inner
+  .container
+  form
+  .content
+  .button-collection
+  .hero-button::before {
   content: "";
   position: absolute;
   bottom: 5%;
@@ -417,7 +510,14 @@ main .section .section-inner .container form .content .button-collection .hero-b
   height: 22px;
   background-color: #1bb8a5;
 }
-main .section .section-inner .container form .content .button-collection .hero-button::after {
+main
+  .section
+  .section-inner
+  .container
+  form
+  .content
+  .button-collection
+  .hero-button::after {
   content: "";
   width: 100%;
   height: 1px;
@@ -426,7 +526,14 @@ main .section .section-inner .container form .content .button-collection .hero-b
   left: 0;
   background-color: #1bb8a5;
 }
-main .section .section-inner .container form .content .button-collection .hero-button:nth-child(1) {
+main
+  .section
+  .section-inner
+  .container
+  form
+  .content
+  .button-collection
+  .hero-button:nth-child(1) {
   margin-bottom: 20px;
 }
 main .section .section-inner .container form .picture {
@@ -458,7 +565,8 @@ main .section .section-inner .container footer .footer-text {
 }
 main .section .section-inner .container footer .footer-text h3 {
   color: white;
-  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a, 0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
+  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a,
+    0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
   margin-right: 10px;
 }
 main .section-lobotomy {
@@ -492,7 +600,7 @@ main .section-about .section-inner .container {
 main .section-about .section-inner .container #about-img {
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
   opacity: 0.5;
 }
@@ -546,7 +654,13 @@ main .section-vision .section-inner .about-inner .vision .vision-container {
   height: 100%;
   gap: 25px;
 }
-main .section-vision .section-inner .about-inner .vision .vision-container .item {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .vision-container
+  .item {
   flex: 1;
   text-align: center;
   align-self: stretch;
@@ -557,16 +671,36 @@ main .section-vision .section-inner .about-inner .vision .vision-container .item
   font-weight: 360;
   position: relative;
 }
-main .section-vision .section-inner .about-inner .vision .vision-container .item span {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .vision-container
+  .item
+  span {
   font-size: 22px;
   letter-spacing: -1px;
   line-height: 1.5;
   margin: 20px 0;
 }
-main .section-vision .section-inner .about-inner .vision .vision-container .item .yellow-text {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .vision-container
+  .item
+  .yellow-text {
   color: #ffe5b8;
 }
-main .section-vision .section-inner .about-inner .vision .vision-container .item::before {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .vision-container
+  .item::before {
   content: "";
   background-image: url("https://www.projectmoon.kr/eng/img/contents/box_line.png");
   background-repeat: no-repeat;
@@ -577,7 +711,13 @@ main .section-vision .section-inner .about-inner .vision .vision-container .item
   top: 0;
   z-index: 8;
 }
-main .section-vision .section-inner .about-inner .vision .vision-container .item::after {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .vision-container
+  .item::after {
   content: "";
   background-image: url("https://www.projectmoon.kr/eng/img/contents/box_line.png");
   background-repeat: no-repeat;
@@ -598,36 +738,83 @@ main .section-vision .section-inner .about-inner .vision .opening-the-moon {
   gap: 120px;
   margin: 90px 7%;
 }
-main .section-vision .section-inner .about-inner .vision .opening-the-moon .topic {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .opening-the-moon
+  .topic {
   width: 100%;
 }
-main .section-vision .section-inner .about-inner .vision .opening-the-moon .topic h2 {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .opening-the-moon
+  .topic
+  h2 {
   font-size: 29px;
   font-weight: 300;
 }
-main .section-vision .section-inner .about-inner .vision .opening-the-moon .topic h3 {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .opening-the-moon
+  .topic
+  h3 {
   color: #ffe5b8;
   font-size: 34px;
   font-weight: 400;
   margin-bottom: 15px;
 }
-main .section-vision .section-inner .about-inner .vision .opening-the-moon .topic .txt {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .opening-the-moon
+  .topic
+  .txt {
   font-size: 17px;
   color: rgba(175, 175, 175, 0.747);
 }
-main .section-vision .section-inner .about-inner .vision .opening-the-moon .topic span {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .opening-the-moon
+  .topic
+  span {
   color: rgb(255, 255, 255);
   font-size: 15px;
   line-height: 1.5;
   font-weight: 100;
 }
-main .section-vision .section-inner .about-inner .vision .opening-the-moon .img-container {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .opening-the-moon
+  .img-container {
   width: 90%;
   height: 500px;
   background-color: rebeccapurple;
   position: relative;
 }
-main .section-vision .section-inner .about-inner .vision .opening-the-moon .img-container img {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .vision
+  .opening-the-moon
+  .img-container
+  img {
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -648,20 +835,39 @@ main .section-vision .section-inner .about-inner .people .people-container {
   padding: 20px;
   margin-bottom: 10px;
 }
-main .section-vision .section-inner .about-inner .people .people-container .title {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .people
+  .people-container
+  .title {
   font-size: 22px;
   width: 10%;
   margin-right: 40px;
   margin-right: 100px;
 }
-main .section-vision .section-inner .about-inner .people .people-container .item-container {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .people
+  .people-container
+  .item-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   gap: 30px;
 }
-main .section-vision .section-inner .about-inner .people .people-container .item-container .item {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .people
+  .people-container
+  .item-container
+  .item {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -674,17 +880,40 @@ main .section-vision .section-inner .about-inner .people .people-container .item
   position: relative;
   font-weight: 300;
 }
-main .section-vision .section-inner .about-inner .people .people-container .item-container .item .orange-text {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .people
+  .people-container
+  .item-container
+  .item
+  .orange-text {
   color: #c39e69;
   font-size: 16px;
   letter-spacing: -1px;
 }
-main .section-vision .section-inner .about-inner .people .people-container .item-container .item .yellow-text {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .people
+  .people-container
+  .item-container
+  .item
+  .yellow-text {
   color: #ffe5b8;
   font-size: 23px;
   letter-spacing: -2px;
 }
-main .section-vision .section-inner .about-inner .people .people-container .item-container .item::before {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .people
+  .people-container
+  .item-container
+  .item::before {
   content: "";
   background-image: url("https://www.projectmoon.kr/eng/img/contents/box_line.png");
   background-repeat: no-repeat;
@@ -695,7 +924,14 @@ main .section-vision .section-inner .about-inner .people .people-container .item
   top: 0;
   z-index: 8;
 }
-main .section-vision .section-inner .about-inner .people .people-container .item-container .item::after {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .people
+  .people-container
+  .item-container
+  .item::after {
   content: "";
   background-image: url("https://www.projectmoon.kr/eng/img/contents/box_line.png");
   background-repeat: no-repeat;
@@ -723,9 +959,17 @@ main .section-vision .section-inner .about-inner .people footer .footer-text {
   font-size: 12px;
   margin-top: 20px;
 }
-main .section-vision .section-inner .about-inner .people footer .footer-text h3 {
+main
+  .section-vision
+  .section-inner
+  .about-inner
+  .people
+  footer
+  .footer-text
+  h3 {
   color: white;
-  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a, 0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
+  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a,
+    0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
   margin-right: 10px;
 }
 main .section-game {
@@ -752,7 +996,7 @@ main .section-banner {
   z-index: 10;
   background-image: url("https://www.projectmoon.kr/admincenter/files/game/bg_library[1].jpg");
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 main .section-banner .section-inner .banner {
   height: 80vh;
@@ -790,21 +1034,43 @@ main .section-banner .section-inner .banner .hero-container .hero-text .hero {
   align-items: center;
   justify-content: center;
 }
-main .section-banner .section-inner .banner .hero-container .hero-text .hero .txt {
+main
+  .section-banner
+  .section-inner
+  .banner
+  .hero-container
+  .hero-text
+  .hero
+  .txt {
   margin-bottom: 30px;
 }
-main .section-banner .section-inner .banner .hero-container .hero-text .hero .txt-desc {
+main
+  .section-banner
+  .section-inner
+  .banner
+  .hero-container
+  .hero-text
+  .hero
+  .txt-desc {
   width: 50%;
   text-align: left;
 }
-main .section-banner .section-inner .banner .hero-container .hero-text .hero .txt-desc .yellow-text {
+main
+  .section-banner
+  .section-inner
+  .banner
+  .hero-container
+  .hero-text
+  .hero
+  .txt-desc
+  .yellow-text {
   color: #ffe5b8;
   margin-right: 20px;
 }
 main .section-banner .section-inner .our-game {
   background-image: url("https://www.projectmoon.kr/admincenter/files/game/bg_library_02[1].jpg");
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   background-size: cover;
 }
 main .section-banner .section-inner .our-game .logo {
@@ -825,7 +1091,13 @@ main .section-banner .section-inner .our-game .game-wrap .game-container {
   width: 100%;
   padding: 30px;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -833,19 +1105,41 @@ main .section-banner .section-inner .our-game .game-wrap .game-container .game-b
   padding-bottom: 100px;
   gap: 50px;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .img-container {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .img-container {
   position: relative;
   width: 60%;
   height: 100%;
   padding: 15px 15px 5px 15px;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .img-container img {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .img-container
+  img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   background-size: cover;
   width: 100%;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .img-container::after {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .img-container::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -857,47 +1151,130 @@ main .section-banner .section-inner .our-game .game-wrap .game-container .game-b
   border-width: 1px;
   border-image-source: linear-gradient(135deg, #ffe5b8, transparent);
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .txt-container {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .txt-container {
   font-weight: 300;
   line-height: 1.8;
   background-color: black;
   width: 40%;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .txt-container h1 {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .txt-container
+  h1 {
   font-size: 16px;
   color: #ffe5b8;
   font-weight: 300;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .txt-container p {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .txt-container
+  p {
   margin-bottom: 25px;
   color: rgba(255, 255, 255, 0.7);
   font-size: 16px;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .txt-container p span {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .txt-container
+  p
+  span {
   opacity: 1;
   color: white;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .txt-container .requirement {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .txt-container
+  .requirement {
   line-height: 1.5;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .txt-container .requirement .second-requirement {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .txt-container
+  .requirement
+  .second-requirement {
   margin-bottom: 10px;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .txt-container .requirement h2 {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .txt-container
+  .requirement
+  h2 {
   font-size: 15px;
   color: #ffe5b8;
   font-weight: 300;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .txt-container .requirement p {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .txt-container
+  .requirement
+  p {
   margin: 0;
   display: inline-block;
   margin-right: 10px;
   font-size: 15px;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box .txt-container .requirement p > * {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box
+  .txt-container
+  .requirement
+  p
+  > * {
   margin-right: 5px;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box2 {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box2 {
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-start;
@@ -905,19 +1282,41 @@ main .section-banner .section-inner .our-game .game-wrap .game-container .game-b
   padding-bottom: 100px;
   gap: 50px;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box2 .img-container {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box2
+  .img-container {
   position: relative;
   width: 60%;
   height: 100%;
   padding: 15px 15px 5px 15px;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box2 .img-container img {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box2
+  .img-container
+  img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   background-size: cover;
   width: 100%;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box2 .img-container::after {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box2
+  .img-container::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -929,23 +1328,55 @@ main .section-banner .section-inner .our-game .game-wrap .game-container .game-b
   border-width: 1px;
   border-image-source: linear-gradient(135deg, #ffe5b8, transparent);
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box2 .txt-container {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box2
+  .txt-container {
   font-weight: 300;
   line-height: 1.8;
   background-color: black;
   width: 40%;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box2 .txt-container h1 {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box2
+  .txt-container
+  h1 {
   font-size: 16px;
   color: #ffe5b8;
   font-weight: 300;
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box2 .txt-container p {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box2
+  .txt-container
+  p {
   margin-bottom: 25px;
   font-size: 17px;
   color: rgba(255, 255, 255, 0.7);
 }
-main .section-banner .section-inner .our-game .game-wrap .game-container .game-box2 .txt-container p span {
+main
+  .section-banner
+  .section-inner
+  .our-game
+  .game-wrap
+  .game-container
+  .game-box2
+  .txt-container
+  p
+  span {
   color: white;
 }
 main .section-banner .section-inner .our-game footer {
@@ -966,7 +1397,8 @@ main .section-banner .section-inner .our-game footer .footer-text {
 }
 main .section-banner .section-inner .our-game footer .footer-text h3 {
   color: white;
-  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a, 0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
+  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a,
+    0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
   margin-right: 10px;
 }
 main .section-comic {
@@ -975,7 +1407,7 @@ main .section-comic {
   background-image: url("https://www.projectmoon.kr/eng/img/contents/visual_comics.jpg");
   background-size: cover;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
   overflow: hidden;
 }
@@ -1017,7 +1449,8 @@ main .section-comic .section-inner .comic-box .hero-container .title p {
   color: rgb(255, 255, 255);
   margin: 10px 0;
 }
-main .section-comic .section-inner .comic-box .hero-container .genre, main .section-comic .section-inner .comic-box .hero-container .platforms {
+main .section-comic .section-inner .comic-box .hero-container .genre,
+main .section-comic .section-inner .comic-box .hero-container .platforms {
   font-family: "Noto sans KR";
   display: flex;
   flex-direction: row;
@@ -1026,7 +1459,8 @@ main .section-comic .section-inner .comic-box .hero-container .genre, main .sect
   font-size: 18px;
   margin-bottom: 10px;
 }
-main .section-comic .section-inner .comic-box .hero-container .genre h2, main .section-comic .section-inner .comic-box .hero-container .platforms h2 {
+main .section-comic .section-inner .comic-box .hero-container .genre h2,
+main .section-comic .section-inner .comic-box .hero-container .platforms h2 {
   margin-right: 10%;
   font-weight: 400;
   font-size: 18px;
@@ -1087,7 +1521,8 @@ main .section-comic .section-inner footer .footer-text {
 }
 main .section-comic .section-inner footer .footer-text h3 {
   color: rgb(250, 229, 184);
-  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a, 0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
+  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a,
+    0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
   margin-right: 10px;
 }
 main .section-novel {
@@ -1096,7 +1531,7 @@ main .section-novel {
   background-image: url("https://www.projectmoon.kr/eng/img/contents/visual_novel.jpg");
   background-size: cover;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 main .section-novel .section-inner {
   margin: 0 5%;
@@ -1140,7 +1575,8 @@ main .section-novel .section-inner .novel-box .hero-container .title p {
   font-weight: 300;
   opacity: 0.9;
 }
-main .section-novel .section-inner .novel-box .hero-container .genre, main .section-novel .section-inner .novel-box .hero-container .platforms {
+main .section-novel .section-inner .novel-box .hero-container .genre,
+main .section-novel .section-inner .novel-box .hero-container .platforms {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1148,12 +1584,14 @@ main .section-novel .section-inner .novel-box .hero-container .genre, main .sect
   width: 45%;
   margin-bottom: 15px;
 }
-main .section-novel .section-inner .novel-box .hero-container .genre h2, main .section-novel .section-inner .novel-box .hero-container .platforms h2 {
+main .section-novel .section-inner .novel-box .hero-container .genre h2,
+main .section-novel .section-inner .novel-box .hero-container .platforms h2 {
   font-weight: 300;
   font-size: 18px;
   color: #ffe5b8;
 }
-main .section-novel .section-inner .novel-box .hero-container .genre p, main .section-novel .section-inner .novel-box .hero-container .platforms p {
+main .section-novel .section-inner .novel-box .hero-container .genre p,
+main .section-novel .section-inner .novel-box .hero-container .platforms p {
   width: 100%;
   text-align: right;
 }
@@ -1180,7 +1618,14 @@ main .section-novel .section-inner .novel-box .img-container .poster .img-txt {
   font-weight: 200;
   margin-top: 20px;
 }
-main .section-novel .section-inner .novel-box .img-container .poster .img-txt span {
+main
+  .section-novel
+  .section-inner
+  .novel-box
+  .img-container
+  .poster
+  .img-txt
+  span {
   color: #1bb8a5;
 }
 main .section-novel .section-inner .novel-box::before {
@@ -1214,7 +1659,8 @@ main .section-novel .section-inner footer .footer-text {
 }
 main .section-novel .section-inner footer .footer-text h3 {
   color: rgb(250, 229, 184);
-  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a, 0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
+  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a,
+    0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
   margin-right: 10px;
 }
 main .section-contact {
@@ -1268,7 +1714,13 @@ main .section-contact .section-inner .contact-box .hero-container footer {
   bottom: 10%;
   left: 30px;
 }
-main .section-contact .section-inner .contact-box .hero-container footer .footer-text {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .hero-container
+  footer
+  .footer-text {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1280,9 +1732,17 @@ main .section-contact .section-inner .contact-box .hero-container footer .footer
   padding: 0px;
   margin-top: 10px;
 }
-main .section-contact .section-inner .contact-box .hero-container footer .footer-text h3 {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .hero-container
+  footer
+  .footer-text
+  h3 {
   color: white;
-  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a, 0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
+  text-shadow: 0 0 7px #fff, 0 0 10px #6c4f1a, 0 0 21px #6c4f1a,
+    0 0 42px #6c4f1a, 0 0 82px #6c4f1a;
   margin-right: 10px;
 }
 main .section-contact .section-inner .contact-box .form-box {
@@ -1310,18 +1770,42 @@ main .section-contact .section-inner .contact-box .form-box form .content {
   color: #a09788;
   font-weight: 300;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .full-width {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .full-width {
   padding: 20px;
   border: 1px #444 solid;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .full-width .select-container {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .full-width
+  .select-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .full-width .select-container input {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .full-width
+  .select-container
+  input {
   background-color: transparent;
   padding: 10px 0;
   border: 0;
@@ -1330,7 +1814,16 @@ main .section-contact .section-inner .contact-box .form-box form .content .full-
   color: #a09788;
   font-size: 16px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .full-width .select-container select {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .full-width
+  .select-container
+  select {
   border: 0;
   border-bottom: 1px #444 solid;
   padding: 10px 0;
@@ -1339,19 +1832,43 @@ main .section-contact .section-inner .contact-box .form-box form .content .full-
   background: transparent;
   font-size: 16px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .full-width .select-container textarea {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .full-width
+  .select-container
+  textarea {
   width: 100%;
   border: 0;
   background-color: transparent;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .half-width {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .half-width {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .half-width .select-container {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .half-width
+  .select-container {
   width: 100%;
   border: 1px #444 solid;
   padding: 15px;
@@ -1361,7 +1878,16 @@ main .section-contact .section-inner .contact-box .form-box form .content .half-
   justify-content: center;
   gap: 10px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .half-width .select-container input {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .half-width
+  .select-container
+  input {
   background-color: transparent;
   padding: 10px;
   border: 0;
@@ -1369,74 +1895,200 @@ main .section-contact .section-inner .contact-box .form-box form .content .half-
   color: #a09788;
   font-size: 16px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .half-width .select-container .phone {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .half-width
+  .select-container
+  .phone {
   border-bottom: 1px #444 solid;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy {
   height: 20%;
   background-color: transparent;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy h2 {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  h2 {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 10px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .fully-width {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .fully-width {
   padding: 10px;
   height: 120px;
   border: 1px #444 solid;
   /* Track */
   /* Handle */
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .fully-width .scrollbar-thing {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .fully-width
+  .scrollbar-thing {
   width: 100%;
   overflow-y: scroll;
   height: 100%;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .fully-width .scrollbar-thing p {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .fully-width
+  .scrollbar-thing
+  p {
   margin-bottom: 30px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .fully-width .scrollbar-thing::-webkit-scrollbar {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .fully-width
+  .scrollbar-thing::-webkit-scrollbar {
   width: 4px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .fully-width .scrollbar-thing::-webkit-scrollbar-track {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .fully-width
+  .scrollbar-thing::-webkit-scrollbar-track {
   border-radius: 50px;
   width: 1px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .fully-width .scrollbar-thing::-webkit-scrollbar-thumb {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .fully-width
+  .scrollbar-thing::-webkit-scrollbar-thumb {
   background: #444;
   border-radius: 50px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .check-box-container {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .check-box-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .check-box-container .check-box {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .check-box-container
+  .check-box {
   width: 20px;
   height: 20px;
   font-size: 22px;
   position: relative;
   cursor: pointer;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .check-box-container .check-box #check {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .check-box-container
+  .check-box
+  #check {
   border: 1px #1bb8a5 solid;
   cursor: pointer;
   width: 100%;
   height: 100%;
   vertical-align: top;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   z-index: -1;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .check-box-container .check-box label {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .check-box-container
+  .check-box
+  label {
   cursor: pointer;
   width: 100%;
   height: 100%;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .check-box-container .check-box label p {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .check-box-container
+  .check-box
+  label
+  p {
   width: 100%;
   height: 100%;
   display: block;
@@ -1445,7 +2097,18 @@ main .section-contact .section-inner .contact-box .form-box form .content .polic
   top: 0;
   left: 0;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .check-box-container .check-box label p::after {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .check-box-container
+  .check-box
+  label
+  p::after {
   content: "";
   position: absolute;
   top: 5%;
@@ -1458,19 +2121,56 @@ main .section-contact .section-inner .contact-box .form-box form .content .polic
   border-left: 0;
   opacity: 1;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .check-box-container .check-box label #check:hover p p::after {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .check-box-container
+  .check-box
+  label
+  #check:hover
+  p
+  p::after {
   background-color: #c39e69;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .policy .check-box-container h2 {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .policy
+  .check-box-container
+  h2 {
   color: #1bb8a5;
   padding: 1px;
   font-size: 17px;
   margin-top: 5px;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .button {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .button {
   border-color: #1bb8a5;
 }
-main .section-contact .section-inner .contact-box .form-box form .content .button h3 {
+main
+  .section-contact
+  .section-inner
+  .contact-box
+  .form-box
+  form
+  .content
+  .button
+  h3 {
   color: #1bb8a5;
   font-weight: 300;
 }
@@ -1492,53 +2192,66 @@ main .section-contact .section-inner::after {
 
 video {
   width: 100%;
+  position: sticky;
+  left: 0;
 }
 video #video {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .scroll-cover {
-  background-color: black;
-  width: 50px;
-  height: 25px;
+  background-color: rgb(0, 0, 0); 
+  width: 30px;
+  height: 55px;
   position: absolute;
   bottom: 10%;
+  /* top: 10%; */
   left: 50%;
-  transform: translateX(-50%);
   z-index: 12;
+
+  pointer-events: none;
+  /* animation-name: cover; */
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cover {
+  0% {
+    bottom: -10%;
+  }
+  100% {
+    bottom: 10%;
+  }
+  
 }
 
 .scroll {
   position: absolute;
   bottom: 0%;
   left: 50%;
-  z-index: 999;
+  /* background-color: #00000052; */
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
 }
 .scroll .scroll-effect {
   width: 15px;
-  -webkit-animation-name: scroll;
-          animation-name: scroll;
+  /* position: absolute; */
+  /* -webkit-animation-name: scroll; */
+  animation-name: scroll-effect;
   -webkit-animation-duration: 3s;
-          animation-duration: 3s;
+  animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
-@-webkit-keyframes scroll {
+
+@keyframes scroll-effect {
   0% {
-    margin-bottom: 50px;
+    transform: translateY(-100%);
     opacity: 0;
   }
   100% {
-    bottom: 0%;
+    transform: translateY(0%);
   }
-}
-@keyframes scroll {
-  0% {
-    margin-bottom: 50px;
-    opacity: 0;
-  }
-  100% {
-    bottom: 0%;
-  }
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
